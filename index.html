@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 8 Ball</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .eight-ball {
+            background: black;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid #3498db;
+            position: relative;
+            transform: rotate(180deg);
+        }
+
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(180deg);
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            width: 90px;
+        }
+    </style>
+</head>
+<body>
+    <div class="eight-ball" onclick="shakeBall()">
+        <div class="triangle">
+            <div class="message" id="message">Ask Me</div>
+        </div>
+    </div>
+
+    <script>
+        const answers = [
+            "It is certain",
+            "It is decidedly so",
+            "Without a doubt",
+            "Yes – definitely",
+            "You may rely on it",
+            "As I see it, yes",
+            "Most likely",
+            "Outlook good",
+            "Yes",
+            "Signs point to yes",
+            "Reply hazy, try again",
+            "Ask again later",
+            "Better not tell you now",
+            "Cannot predict now",
+            "Concentrate and ask again",
+            "Don't count on it",
+            "My reply is no",
+            "My sources say no",
+            "Outlook not so good",
+            "Very doubtful"
+        ];
+
+        function shakeBall() {
+            const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+            document.getElementById('message').innerText = randomAnswer;
+        }
+    </script>
+</body>
+</html>
